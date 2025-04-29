@@ -17,8 +17,6 @@ const port = process.env.PORT || 3000;
 /*------------------
       MONGODB
 ------------------*/
-// Address server discovery deprecation warning
-mongoose.set('useUnifiedTopology', true);
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 const db = mongoose.connection;
@@ -26,7 +24,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB Connection Error. Please make sure that', process.env.MONGO_URI, 'is running.'));
 // Open connection
 db.once('open', function() {
-  console.info('Connected to MongoDB:', process.env.MONGO_URI);
+  console.info('Connected to MongoDB');
 });
 
 /*------------------

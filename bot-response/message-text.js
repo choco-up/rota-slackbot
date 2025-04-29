@@ -110,8 +110,11 @@ const msgText = {
   listEmpty: () => {
     return ':clipboard: There are no rotations saved right now. To create one, tell me `@rota new "[rotation-name]" [description]`.';
   },
+  ttReport: (usermention) => {
+    return ':gopherdancerainbow: ' + usermention + ' PIC QUICK CHECK!!!!!!!!!!!!!!';
+  },
   whoReport: (usermention, rotation) => {
-    return ':bust_in_silhouette: `' + usermention + '` is on duty for the *' + rotation + '* rotation. To notify them directly, use `@rota "' + rotation + '" [message]`.';
+    return ':bust_in_silhouette: ' + usermention + ' is on duty for the *' + rotation + '* rotation. To notify them directly, use `@rota "' + rotation + '" [message]`.';
   },
   nobodyAssigned: (rotation) => {
     return ':ghost: Nobody is currently assigned to the *' + rotation + '* rotation. To assign someone, use `@rota "' + rotation + '" assign [@user] [optional handoff message]` or assign the next person in the rotation staff list with `@rota "' + rotation + '" assign next [optional handoff message]`.';

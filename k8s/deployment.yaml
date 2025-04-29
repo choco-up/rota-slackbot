@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rota
+  namespace: uat
+  labels:
+    app: rota
+    environment: uat
+spec:
+  selector:
+    matchLabels:
+      app: rota
+  template:
+    metadata:
+      labels:
+        app: rota
+      name: rota
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: rota
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "3000Mi"
+            requests:
+              cpu: "100m"
+              memory: "500Mi"
+          image: 938897780349.dkr.ecr.ap-southeast-1.amazonaws.com/rota:1745890884
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: rota-secret
